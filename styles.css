@@ -1,219 +1,122 @@
-/* Body and background */
 body {
-    font-family: Arial, sans-serif;
-    color: white;
-    overflow-x: hidden;
-    background: #000000;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    transition: all 0.5s ease;
-  }
-  
-  /* Header and navigation */
-  header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.9);
-    padding: 10px 20px;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-    transition: background-color 0.3s ease;
-  }
-  
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  nav .logo {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: white;
-    transition: transform 0.3s ease;
-  }
-  
-  nav ul {
-    list-style: none;
-    display: flex;
-  }
-  
-  nav ul li {
-    margin-left: 20px;
-  }
-  
-  nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-size: 1em;
-    padding: 5px 10px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-  }
-  
-  nav ul li a:hover {
-    background-color: #010014;
-    border-radius: 5px;
-    transform: scale(1.1);
-  }
-  
-  /* Main content adjustments */
-  main {
-    padding-top: 100px;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: transform 0.5s ease;
-  }
-  
-  /* Title */
-  .main-title {
-    text-align: center;
-    font-size: 2em;
-    margin-bottom: 20px;
-    opacity: 0;
-    animation: fadeIn 1s forwards;
-  }
-  
-  @keyframes fadeIn {
-    from {
+  font-family: Arial, sans-serif;
+  color: white;
+  overflow-x: hidden;
+  margin: 0;
+  height: 100vh;
+  position: relative;
+  background: #000;
+  animation: fadeIn 2s ease-out;
+}
+
+@keyframes fadeIn {
+  0% {
       opacity: 0;
-    }
-    to {
+  }
+  100% {
       opacity: 1;
-    }
   }
-  
-  /* Search bar */
-  .search-bar {
-    display: flex;
-    justify-content: center;
-    margin: 30px 0;
-    opacity: 0;
-    animation: fadeIn 1s 0.5s forwards;
+}
+
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7), rgba(255, 0, 0, 0.5), rgba(0, 0, 255, 0.5));
+  background-size: 400% 400%;
+  animation: gradientAnimation 10s ease infinite;
+  z-index: -1;
+}
+
+@keyframes gradientAnimation {
+  0% {
+      background-position: 0% 50%;
   }
-  
-  .search-bar input {
-    padding: 15px;
-    width: 500px;
-    border: 1px solid #444;
-    border-radius: 5px 0 0 5px;
-    background-color: #2b2b2b;
-    color: white;
-    font-size: 1em;
-    transition: width 0.3s ease;
+  50% {
+      background-position: 100% 50%;
   }
-  
-  .search-bar input:focus {
-    width: 550px;
+  100% {
+      background-position: 0% 50%;
   }
-  
-  .search-bar button {
-    padding: 15px;
-    background-color: #010014;
-    color: white;
-    border: none;
-    border-radius: 0 5px 5px 0;
-    cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.3s ease;
-  }
-  
-  .search-bar button:hover {
-    background-color: #010014;
-  }
-  
-  /* Latest Roblox Scripts Section */
-  .scripts {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    margin-top: 50px;
-    text-align: center;
-    opacity: 0;
-    transform: translateY(100px);
-    animation: fadeUp 1s forwards 1s;
-  }
-  
-  @keyframes fadeUp {
-    from {
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 10px 20px;
+  z-index: 1000;
+}
+
+nav .logo {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: white;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.key-system-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.key-box {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 60px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  animation: fadeInContent 2s ease-out 0.5s forwards;
+  width: 350px;
+}
+
+@keyframes fadeInContent {
+  0% {
       opacity: 0;
-      transform: translateY(100px);
-    }
-    to {
+  }
+  100% {
       opacity: 1;
-      transform: translateY(0);
-    }
   }
-  
-  .scripts h2 {
-    width: 100%;
-    font-size: 1.5em;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    font-weight: bold;
-    color: #010014;
-  }
-  
-  /* Script cards */
-  .script-card {
-    background: rgba(0, 0, 0, 0.8);
-    border: 1px solid #444;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    opacity: 0;
-    transform: translateY(30px);
-    animation: slideIn 0.5s forwards;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  @keyframes slideIn {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  /* Hover effect on script cards */
-  .script-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-    background: #1e1e1e;
-  }
-  
-  /* Footer */
-  footer {
-    background: rgba(0, 0, 0, 0.9);
-    text-align: center;
-    padding: 10px;
-    margin-top: 20px;
-  }
-  .latest-scripts {
-    display: flex;
-    justify-content: space-around; /* Répartit l'espace également entre les éléments */
-    align-items: center; /* Centre les éléments verticalement */
-    padding: 20px;
-    background-color: #000000;
-    margin-top: 50px; /* Ajoute un espace au-dessus de la section */
-  }
-  
-  .script-card {
-    background-color: #000000;
-    padding: 15px;
-    margin: 10px;
-    border-radius: 5px;
-    width: 200px;
-    text-align: center;
-  }
-  
-  
+}
+
+.key-title {
+  font-size: 1.5em;
+  color: #fff;
+  margin-bottom: 30px;
+}
+
+.key-button {
+  padding: 20px 40px;
+  background-color: #fff;
+  color: #000;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.key-button:hover {
+  background-color: #f1f1f1;
+  transform: scale(1.1);
+}
+
+footer {
+  background: rgba(0, 0, 0, 0.8);
+  text-align: center;
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
